@@ -23,3 +23,4 @@ function sum4(g,h,i,j,k){
 }
 const hasilsum4 = sum4(10,3,6,7,9);
 console.log(hasilsum4);
+console.log("result");

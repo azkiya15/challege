@@ -1,12 +1,10 @@
 function isPrime(value) {
-  /**
-   * An integer is prime if it is not divisible by any prime less than or equal to its square root
-   **/
 
+  //fungsi utk membuktikan prima atau bukan
   function prima(n) {
     if (n < 2) return false;
-    let max = Math.floor(Math.sqrt(n));
 
+    let max = Math.floor(Math.sqrt(n));
     for (let number = 2; number <= max; number++) {
       if (n % number == 0) {
         return false;
@@ -26,14 +24,9 @@ function isPrime(value) {
   let hasilAkhir = [];
 
   for (let index1 = 0; index1 < hasilDeretPrima.length; index1++) {
-    //      // if (prima(index)){
-    //          hasilAkhir.push()
-    //    }
-      hasilAkhir = (hasilDeretPrima[value-1]);
-     
-  } 
+    hasilAkhir = hasilDeretPrima[value - 1];
+  }
   return hasilAkhir;
-  
 }
 
 console.log(isPrime(4));

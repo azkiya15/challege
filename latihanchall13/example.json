@@ -1,13 +1,5 @@
 [
    {
-      "task": "makan ikan",
-      "complete": true,
-      "tags": [
-         "makan",
-         "telor"
-      ]
-   },
-   {
       "task": "memakan uduk",
       "complete": true,
       "tags": [
@@ -16,40 +8,25 @@
    },
    {
       "task": "menjalin kasih",
-      "complete": true,
-      "tags": [
-         "pacaran"
-      ]
-   },
-   {
-      "task": " pasangan kekasih ",
       "complete": false,
       "tags": [
          "pacaran"
       ]
-   },
-   {
-      "task": " nyangkul sawah ",
-      "complete": false,
-      "tags": []
    },
    {
       "task": "belajar",
+      "complete": true,
+      "tags": [
+         "ajar"
+      ]
+   },
+   {
+      "task": "menyuci baju aku",
       "complete": false,
       "tags": []
    },
    {
-      "task": "main",
-      "complete": false,
-      "tags": []
-   },
-   {
-      "task": "main",
-      "complete": false,
-      "tags": []
-   },
-   {
-      "task": "main",
+      "task": "nyuci piring",
       "complete": false,
       "tags": []
    }

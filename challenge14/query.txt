@@ -1,0 +1,102 @@
+//menambah isi data pada table matakuliah
+INSERT INTO matakuliah (namamatkul,sks) VALUES ('data mining',3);
+
+//menambah kolom "umur" di table mahasiswa
+ALTER TABLE mahasiswa ADD COLUMN umur INTEGER;
+output:
+nim   nama    alamat   jurusan      umur
+----  ------  -------  -----------  ----
+1001  azkiya  ciganea  Informatika
+1002  salwa   bandung  Industri
+
+
+//menambah isi "umur" di table mahasiswa pada nim = 1001;
+UPDATE mahasiswa SET umur = 18 WHERE nim = 1001;
+output:
+nim   nama    alamat   jurusan      umur
+----  ------  -------  -----------  ----
+1001  azkiya  ciganea  Informatika  18
+1002  salwa   bandung  Industri
+1003  iqbal   lampung  elektro
+
+nim   nama    alamat   jurusan      umur
+----  ------  -------  -----------  ----
+1001  azkiya  ciganea  Informatika  18
+1002  salwa   bandung  Industri     21
+1003  iqbal   lampung  elektro      19
+
+//menampilkan mahasiswa yang umurnya < 20
+nim   nama    alamat   jurusan      umur  nilai  angka
+----  ------  -------  -----------  ----  -----  -----
+1001  azkiya  ciganea  Informatika  18    A      100
+1002  salwa   bandung  Industri     21    A      100
+1003  iqbal   lampung  elektro      19    B      80
+
+SELECT * FROM mahasiswa WHERE umur<20;
+output:
+nim   nama    alamat   jurusan      umur
+----  ------  -------  -----------  ----
+1001  azkiya  ciganea  Informatika  18
+1003  iqbal   lampung  elektro      19
+
+//menampilkan mahasiswa yang nilainya diatas B
+SELECT nim,nama,nilai FROM mahasiswa WHERE angka>80;
+output:
+nim   nama    nilai
+----  ------  -----
+1001  azkiya  A
+1002  salwa   A
+
+//menampilkan mahasiswa yg sks nya < 10
+nim   nama    alamat   jurusan      umur  nilai  angka  sks
+----  ------  -------  -----------  ----  -----  -----  ---
+1001  azkiya  ciganea  Informatika  18    A      100    9
+1002  salwa   bandung  Industri     21    A      100    12
+1003  iqbal   lampung  elektro      19    B      80     14
+
+ SELECT nim,nama,sks FROM mahasiswa WHERE sks < 10;
+output:
+nim   nama    sks
+----  ------  ---
+1001  azkiya  9
+
+
+
+
+SELECT a.nim, b.nama, b.jurusan, c.namamatkul, d.namadosen, a.nilai FROM nilai a INNER JOIN mahasiswa b ON a.nim = b.nim INNER JOIN matakuliah c ON
+   ...> a.idmatkul = c.idmatkul INNER JOIN dosen d ON c.nid = d.nid;
+nim   nama    jurusan      namamatkul       namadosen  nilai
+----  ------  -----------  ---------------  ---------  -----
+1001  azkiya  Informatika  PRPL             Eko        A
+1001  azkiya  Informatika  sistem operasi   Eko        B
+1001  azkiya  Informatika  big data         Bambang    D
+1001  azkiya  Informatika  data mining      Bambang    B
+1001  azkiya  Informatika  sistem database  Sri        C
+1001  azkiya  Informatika  pemograman web   Sri        A
+1001  azkiya  Informatika  robotika         Sri        E
+1002  salwa   Industri     PRPL             Eko        C
+1002  salwa   Industri     sistem operasi   Eko        B
+1002  salwa   Industri     big data         Bambang    B
+1002  salwa   Industri     data mining      Bambang    D
+1002  salwa   Industri     sistem database  Sri        D
+1002  salwa   Industri     pemograman web   Sri        B
+1002  salwa   Industri     robotika         Sri        A
+1003  iqbal   elektro      PRPL             Eko        B
+1003  iqbal   elektro      sistem operasi   Eko        C
+1003  iqbal   elektro      big data         Bambang    C
+1003  iqbal   elektro      data mining      Bambang    B
+1003  iqbal   elektro      sistem database  Sri        E
+1003  iqbal   elektro      pemograman web   Sri        E
+1003  iqbal   elektro      robotika         Sri        C
+
+
+SELECT a.nim, b.nama, b.jurusan, c.namamatkul, d.namadosen, a.nilai FROM nilai a INNER JOIN mahasiswa b ON a.nim = b.nim INNER JOIN matakuliah c ON
+   ...> a.idmatkul = c.idmatkul INNER JOIN dosen d ON c.nid = d.nid WHERE a.angka < 60;
+nim   nama    jurusan      namamatkul       namadosen  nilai
+----  ------  -----------  ---------------  ---------  -----
+1001  azkiya  Informatika  big data         Bambang    D
+1001  azkiya  Informatika  robotika         Sri        E
+1002  salwa   Industri     data mining      Bambang    D
+1002  salwa   Industri     sistem database  Sri        D
+1003  iqbal   elektro      sistem database  Sri        E
+1003  iqbal   elektro      pemograman web   Sri        E

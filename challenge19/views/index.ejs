@@ -12,58 +12,142 @@
 <title>Index</title>
 </head>
 <body>
+  <form action="" method="post">
   <div class="container">
-    <h2>Input Sizing</h2>
-    <p>The form below shows input elements with different heights using .input-lg and .input-sm:</p>
+    <h2>BREAD (Browse, Read, Edit, Add, Delete)</h2>
+    <h4>Filters</h4>
+    
     <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-      </div>
+      <label for="id" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="cekid" id="id" value="valid">ID</input></label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="id" placeholder="ID">
+        </div>
     </div>
+    
     <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      </div>
+      <label for="string" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="cekstring" id="str" value="string">String</input></label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="string" placeholder="String">
+        </div>
     </div>
+
     <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      </div>
+      <label for="integer" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="cekint" id="int" value="integer">Integer</input></label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="integer" placeholder="Integer">
+        </div>
     </div>
+
     <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      </div>
+      <label for="float" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="cekflo" id="flt" value="float">Float</input></label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="float" placeholder="Float">
+        </div>
     </div>
+    
     <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <label for="date" class="col-sm-2 col-form-label">
+      <input type="checkbox" name="cekdate" id="dt" value="date">Date</input></label>
       <div class="col-xs-2">
-        <input class="form-control" id="inputPassword3" type="text">
-        <label for="inputPassword3">to</label>
-        <input class="form-control" id="inputPassword3" type="text">
+        <input class="form-control" id="startdate" type="text" placeholder="start date">
+        <label for="date">to</label>
+        <input class="form-control" id="enddate" type="text" placeholder="end date">
       </div>
     </div>
+
     <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <label for="float" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="cekbool" id="bln" value="boolean">Boolean</input></label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        <label for="bool"></label>
+      <select class="form-control" id="bool">
+        <option>true</option>
+        <option>false</option>
+      </select>
       </div>
+
     </div>
     <div class="form-group row">
-      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="submit" class="btn btn-primary">Search</button>
     </div>
       
     </form>
   </div>
+
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>String</th>
+          <th>Integer</th>
+          <th>Float</th>
+          <th>Date</th>
+          <th>Boolean</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% for (let i = 0; i < content.length; i++ ) {%>
+          <tr>
+          <td><%=content[i].id%></td>
+          <th><%=content[i].string%></th>
+          <th><%=content[i].integer%></th>
+          <th><%=content[i].float%></th>
+          <th><%=content[i].date%></th>
+          <td><%=content[i].boolean%></td>
+        <td>
+          <a type="button" class="btn btn-success" href="/editt/<%=content[i].id%>">Edit</a>
+          
+           <a type="button" class="btn btn-danger" href="/submitdel/<%=content[i].id%>">Delete</a></td>
+        </tr>
+        <%}%>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container">
+
+    <button type="button" class="btn btn-primary"><a href="/add">Add</a></button>
+
+  </div>
+
+</form>
   
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+
+    
   </body>
 </html>

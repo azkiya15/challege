@@ -1,0 +1,42 @@
+[
+   {
+      "id": "1",
+      "string": "Testing Data",
+      "integer": "12",
+      "float": "1.45",
+      "date": "21 Desember 2017",
+      "boolean": "true"
+   },
+   {
+      "id": "2",
+      "string": "Coba lagi",
+      "integer": "99",
+      "float": "100.405",
+      "date": "20 November 2017",
+      "boolean": "false"
+   },
+   {
+      "id": "4",
+      "string": "hai",
+      "integer": "hehe",
+      "float": "haha",
+      "date": "hihi",
+      "boolean": "true"
+   },
+   {
+      "id": "5",
+      "string": "test",
+      "integer": "satu",
+      "float": "dua",
+      "date": "tiga",
+      "boolean": "true"
+   },
+   {
+      "id": "6",
+      "string": "test",
+      "integer": "satu",
+      "float": "dua",
+      "date": "tiga",
+      "boolean": "true"
+   }
+]

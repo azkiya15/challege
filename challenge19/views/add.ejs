@@ -1,11 +1,105 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>TAMPILAN ADD <%= title %></p>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="static/css/myCss.css" rel="stylesheet">
+<meta charset="UTF-8">
+<link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="static/css/customIndex.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<title>Index</title>
+</head>
+<body>
+  <form action="/submitadd" method="post">
+  <div class="container">
+    <h2>Add Data</h2>
+    
+    
+    <div class="form-group row">
+      <label for="string" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="pilih1" value="">String</input></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="string" id="string" placeholder="String">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="integer" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="pilih1" value="">Integer</input></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name ="integer" id="integer" placeholder="Integer">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="float" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="pilih1" value="">Float</input></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="float" id="float" placeholder="Float">
+        </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label">
+        <input type="checkbox" name="pilih1" value="">Date</input></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="date" id="date" placeholder="end date">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="boolean" class="col-sm-2 col-form-label">Boolean</label>
+      <div class="col-sm-10">
+        <label for="sel1"></label>
+      <select class="form-control" name ="boolean" id="sel1">
+        <option>true</option>
+        <option>false</option>
+      </select>
+      </div>
+
+    </div>
+  </form>
+
+
+    <div class="form-group row">
+      <!-- <% function save() {
+        fs.readFile("data.json", "utf8", (err, data) => {
+          if (err) throw err;
+          let tampil = JSON.parse(data);
+          
+          let tambah = {
+            id: content.length + 1,
+            string: string,
+            integer: integer,
+            float: float,
+            date: date,
+            boolean: boolean,
+          };
+          tampil.push(tambah);
+          
+          fs.writeFileSync("data.json", JSON.stringify(tampil, null, 3));
+          
+          res.render("add", { title: "Express", content: save() });
+        });
+      } %> -->
+      
+      <button type="submit" class="btn btn-primary">Save</button>
+      <!-- <input type="submit" value="accept"/><br><br><hr> -->
+    </div>
+  </div>
+  
+</form>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    
   </body>
 </html>

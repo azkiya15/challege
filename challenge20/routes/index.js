@@ -1,30 +1,42 @@
 var express = require("express");
 var router = express.Router();
-let fs = require('fs');
+
 const { json } = require("express");
 const { route } = require("./users");
 const { FORMERR } = require("dns");
+const sqlite3 = require("sqlite3").verbose();
 
-const saveUserData = (data) => {
-  const stringifyData = JSON.stringify(data, null, 3)
-  fs.writeFileSync('data.json', stringifyData)
-}
-//get the user data from json file
-const getUserData = () => {
-  const jsonData = fs.readFileSync('data.json')
-  return  JSON.parse(jsonData)
-}
+// open the database
+let db = new sqlite3.Database("./bread.db", (err, rows) => {
+  if (err) {
+    throw err;
+  }
+  // console.log("Successful connection to the database 'bread.db'");
+});
+
+// const db_name = path.join(__dirname, "data", "bread.db");
+// const db = new sqlite3.Database(db_name, err => {
+//   if (err) {
+//     return console.error(err.message);
+//   }
+//   console.log("Successful connection to the database 'bread.db'");
+// });
 
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  fs.readFile("data.json", "utf8", (err, data) => {
-    if (err) throw err;
-    let tampil = JSON.parse(data);
-    res.render("index", { title: "Express", content: tampil });
-  })
-});
+  let sql = `SELECT * FROM bread`;
 
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    // console.log(sql);
+    res.render("index", {  model: rows });
+    });
+  });
+  
+  
 router.get("/add", function (req, res, next) {
   res.render("add", { title: "Express"})
 })

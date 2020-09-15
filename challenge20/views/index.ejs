@@ -93,18 +93,18 @@
       </thead>
       <tbody>
         
-        <% for (let i = 0; i < content.length; i++ ) {%>
+        <%for (const br of model) {%>
           <tr>
-          <td><%=content[i].id%></td>
-          <th><%=content[i].string%></th>
-          <th><%=content[i].integer%></th>
-          <th><%=content[i].float%></th>
-          <th><%=content[i].date%></th>
-          <td><%=content[i].boolean%></td>
+          <td><%=br.id%></td>
+          <th><%=br.string%></th>
+          <th><%=br.integer%></th>
+          <th><%=br.float%></th>
+          <th><%=br.date%></th>
+          <td><%=br.boolean%></td>
         <td>
-          <a type="button" class="btn btn-success" href="/editt/<%=content[i].id%>">Edit</a>
+          <a type="button" class="btn btn-success" href="/editt/<%=br.id%>">Edit</a>
           
-           <a type="button" class="btn btn-danger" href="/submitdel/<%=content[i].id%>">Delete</a></td>
+           <a type="button" class="btn btn-danger" href="/submitdel/<%=br.id%>">Delete</a></td>
         </tr>
         <%}%>
         
